@@ -1,0 +1,15 @@
+header {
+    background-image: url(./images/flower_background.jpg);
+    text-align: center;
+    align-content: center;
+}
+
+body {
+    background: white;
+}
+
+footer {
+    background-image: url(./images/flower_background.jpg);
+    text-align: center;
+    align-content: center;
+}

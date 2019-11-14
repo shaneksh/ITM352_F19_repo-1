@@ -1,0 +1,58 @@
+/*General*/
+body {
+    width: 800px; 
+    margin: 0 auto;
+    background-image: url(./images/flower_background.jpg);
+}
+
+/*Typography*/
+h1 {
+    text-align: center;
+    font-family: 'Petit Formal Script';
+}
+h2, p {
+    text-align: center;
+    font-family: 'Dancing Script';
+}
+
+/*Block Styling*/
+div {
+    border: 5px solid black;
+    display: flex;
+}
+
+/*Form Styling*/
+main {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    background-position: center;
+    background-color: rgba(255, 250, 205, 0.473);
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+/*Styling the products display*/
+.item img {
+    width: 200px;
+    height: 200px;
+    border: 3px solid gray;
+    border-radius: 50%;
+}
+
+input[type = submit] {
+    width: 12em;
+}
+
+footer {
+    text-align: center;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    border-radius: 50%;
+    border: 3px solid black;
+  }
