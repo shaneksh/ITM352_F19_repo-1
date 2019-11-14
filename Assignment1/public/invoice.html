@@ -1,19 +1,18 @@
 <script src="./products.js" type="text/javascript"></script>
 <script>
-  //i took this from Ports Example in Part B of Assignment 1 
-  // 
-  let params = (new URL(document.location)).searchParams; //
-  var quantities = [];
-  // form was submitted so process the invoice
-  if (params.has('purchase_submit')) { //
-    for (i = 0; i < products.length; i++) { //
-      if (params.has(`quantity${i}`)) { //
-        a_qty = params.get(`quantity${i}`); //
-        quantities[i] = a_qty; //
+  // Source: From frame source of invoice on Assigment 1
+  let params = (new URL(document.location)).searchParams; // allows access to GET
+  var quantities = []; // array
+
+  if (params.has('purchase_submit')) { // when user presses purchase, invoice will be processed
+    for (i = 0; i < products.length; i++) {
+      if (params.has(`quantity${i}`)) { 
+        a_qty = params.get(`quantity${i}`); 
+        quantities[i] = a_qty; 
       }
     }
   } else {
-    document.write('Sorry, no form submitted. Please try again.'); //
+    document.write('Sorry, no form submitted. Please try again.'); // error message for user
   }
   console.log(quantities);
 </script>
