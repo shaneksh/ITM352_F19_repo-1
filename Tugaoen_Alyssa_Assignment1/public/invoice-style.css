@@ -1,0 +1,30 @@
+header {
+    text-align: center;
+    align-content: center;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Petit Formal Script';
+}
+
+h3 {
+    text-align: center;
+    font-family: 'Dancing Script';
+}
+
+body {
+    background-image: url(./Images/flower_background.JPG); 
+}
+
+footer {
+    text-align: center;
+    align-content: center;
+}
+
+tr {
+    background: white;
+    font-family: 'Dancing Script';
+    font-size: large;
+    border: 5px solid black;
+}
