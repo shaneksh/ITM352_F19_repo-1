@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Registration</title>
+    <link href="register-style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script&display=swap" rel="stylesheet">
+    <script>
+        let params = (new URL(document.location)).searchParams;
+        if (params.has("RegisterError")) {
+            window.onload = function () {
+                regError = params.get("RegisterError");
+                nameLong = 'fullname is too long';
+                nameNoLetter = 'name must be letters only';
+                passLength = 'password must be more than 6 characters long';
+                passNoMatch = 'password does not match';
+                useNumLet = 'useusername must be characters and numbers only';
+                useLong = 'username is too long';
+                useShort = 'username is too short';
+                emailInvalid = 'email is invalid';
+                if (regError == nameLong) {
+                    document.getElementById("regfullname").innerHTML = regError;
+                    regError = '';
+                }
+                if (regError == nameNoLetter) {
+                    document.getElementById("regfullname").innerHTML = regError;
+                    regError = '';
+                }
+                if (regError == passLength) {
+                    document.getElementById("regpassword").innerHTML = regError;
+                    regError = '';
+                }
+                if (regError == passNoMatch) {
+                    document.getElementById("regrepeatpassword").innerHTML = regError;
+                    regError = '';
+                }
+                if (regError == useNumLet) {
+                    document.getElementById("regusername").innerHTML = regError;
+                    regError = '';
+                }
+                if (regError == useLong) {
+                    document.getElementById("regusername").innerHTML = regError;
+                    regError = '';
+                }
+                if (regError == useShort) {
+                    document.getElementById("regusername").innerHTML = regError;
+                    regError = '';
+                }
+                if (regError == emailInvalid) {
+                    document.getElementById("regemail").innerHTML = regError;
+                    regError = '';
+                }
+                if (params.has("stickMe")) {
+                    stickTheInputBox = params.get("stickMe");
+                    document.getElementById("reguserbox").value = stickTheInputBox;
+                    regError = '';
+                }
+            }
+
+        }
+    </script>
+
+</head>
+
+<header>
+    <div id="top">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h1>Sign Up
+            <br>
+            Kiara's Clothing Store
+            <br>
+            You're one step away from cute clothes!</h1>
+    </div>
+</header>
+
+<body>
+    <form method="POST" id="register_form" name="registration_form">
+        <input type="text" id="reguserbox" name="fullname" size="40" placeholder="enter fullname">
+        <label id="regfullname" class="">fullname</label><br />
+        <input type="text" id="reguserbox" name="username" size="40" placeholder="enter username">
+        <label id="regusername" class="">username</label><br />
+        <input type="password" id="reguserbox" name="password" size="40" placeholder="enter password">
+        <label id="regpassword" class="">password</label><br />
+        <input type="password" id="reguserbox" name="repeat_password" size="40" placeholder="enter password again">
+        <label id="regrepeatpassword" class="">repeat password</label><br />
+        <input type="email" id="reguserbox" name="email" size="40" placeholder="enter email">
+        <label id="regemail" class="">email</label><br />
+        <br>
+        <input type="submit" value="register" id="submit">
+        <style>
+            input[type=submit] {
+                background-color:whitesmoke;
+                border: solid black 0.2px;
+                color: black;
+                padding: 16px 32px;
+                text-decoration: none;
+                margin: 4px 2px;
+                cursor: pointer;
+            }
+        </style>
+    </form>
+</body>
+
+
+<script>
+    //Sets link with quantity data to pass to next page
+    register_form.action = "/register" + document.location.search;
+</script>
+
+</html>
