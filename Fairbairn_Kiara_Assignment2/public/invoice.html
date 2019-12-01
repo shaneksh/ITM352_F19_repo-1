@@ -16,12 +16,18 @@
   }
   console.log(quantities);  //displays quantities array in the console
 
-  if (params.has("stickMe2")) {
-    window.onload = function () {
-      displayName = params.get("stickMe2");
-      document.getElementById("showFullName").innerHTML = displayName;
+
+
+  window.onload = function () { //shows when the page loads 
+    emptyName = document.getElementById("showFullName").innerHTML; //sets the inner html to display the error
+    ifUserSignedIn = 0; //variable that compare to emptyname variable
+    if (params.has("stickMe2")) {
+        displayName = params.get("stickMe2"); //get the information from the query string
+        document.getElementById("showFullName").innerHTML = displayName; //get the inner html of the given ID and assigns it to a variable to show the full name
+      } else if (emptyName == ifUserSignedIn) { //if user did not sign in send them back to the register page
+        javascript: history.go(-1) 
     }
-  }
+
 </script>
 
 <!doctype html>
@@ -67,7 +73,7 @@
           <table>
             <tr>
               <td style="font-size: 15px">
-                Thank you <div id="showFullName">name</div> for your purchase!
+                Thank you <div id="showFullName">0</div> for your purchase!
               </td>
             </tr>
           </table>

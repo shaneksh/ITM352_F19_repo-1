@@ -25,15 +25,28 @@ img {
 	/* Set a small width */
 }
 
-
  /* Source: https://codepen.io/shayanea/pen/eVMMgO */
 html,body {
-	min-height: 100vh;
 	display: flex;
-	background: tan; 
 	align-items: center;
 	justify-content: center;
 	font-family: "Fira Sans", Helvetica, Arial, sans-serif;
+	background: tan;
+	height: 100%;
+	font-family: Poppins-Regular, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+img {
+	width: 20px;
+	height: 20px; 
+	display: flexbox;
+	position: flexible;
+	bottom: 0px;
+	border-radius: 50%;
+  }
+  .invoiceimage {
+  width: 100px;
+  height: 100px;
+  }
