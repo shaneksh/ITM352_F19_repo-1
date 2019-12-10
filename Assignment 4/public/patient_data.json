@@ -1,0 +1,30 @@
+{
+    "itm352": {
+        "name": "ITM 352",
+        "password": "grader",
+        "email": "itm352@hawaii.edu",
+        "accountID": "1",
+        "balance": 50.00
+    },
+    "mdelacruz": {
+        "name": "Maria DelaCruz",
+        "password": "loGin22",
+        "email": "mdelacruz@gmail.com",
+        "accountID": "2",
+        "balance": 0.00
+    },
+    "patrick2": {
+        "name": "Patrick Tugaoen",
+        "password": "password123",
+        "email": "patrickt@google.com",
+        "accountID": "3",
+        "balance": 75.00
+    },
+    "johnson": {
+        "name": "Bethany Johnson",
+        "password": "doctor44",
+        "email": "bethjohnson@gmail.com",
+        "accountID": "4",
+        "balance": 0.00
+    }
+}

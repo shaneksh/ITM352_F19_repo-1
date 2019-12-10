@@ -1,0 +1,22 @@
+{
+    "itm352": {
+        "name": "ITM 352",
+        "password": "grader",
+        "email": "itm352@hawaii.edu"
+    },
+    "alvin": {
+        "name": "Alvin Vales",
+        "password": "vales479",
+        "email": "alvin@valesoffice.com"
+    },
+    "alyssa": {
+        "name": "Alyssa Tugaoen",
+        "password": "alyssa123",
+        "email": "alyssatu@hawaii.edu"
+    },
+    "nats": {
+        "name": "Naty Tugaoen",
+        "password": "naty321",
+        "email": "naty@valessoffice.com"
+    }
+}
