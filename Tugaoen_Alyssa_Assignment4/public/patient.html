@@ -1,0 +1,60 @@
+<script src="./server.js"></script>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+    <title>Patient Portal Login</title>
+    <header>
+        <h1>Dr. Alvin G. Vales, MD</h1>
+    </header>
+    <ul class="nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="staff.html">Staff Portal</a></li>
+        <li><a href="patient.html">Patient Portal</a></li>
+    </ul>
+
+</head>
+<h1>Patient Portal Login</h1>
+</header>
+
+<body>
+    Pay patient balance here.
+    <br>
+    What is needed: invoice number and patient name
+    <div>
+        <main>
+            <form method="POST" name="login_form">
+                <input type="text" id="nameBox" name="patientname" size="40" placeholder="enter patient name">
+                <label id="usernamelabel" class=""> Patient Name </label> <br />
+                <input type="text" name="invoiceID" size="40" placeholder="enter invoice number">
+                <label id="passwordlabel" class=""> Password </label> <br />
+                <br>
+                <input type="submit" value="Submit" id="submit"> 
+                <style>
+                    input[type=submit] {
+                        background-color: whitesmoke;
+                        border: solid black 0.2px;
+                        color: black;
+                        padding: 16px 32px;
+                        text-decoration: none;
+                        margin: 4px 2px;
+                        cursor: pointer;
+                    }
+                </style>
+        </main>
+    </div>
+    </form>
+    <script>
+        login_form.action = "./payment.html" + document.location.search;
+    </script>
+</body>
+
+</html>

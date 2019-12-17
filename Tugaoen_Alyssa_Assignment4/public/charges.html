@@ -1,0 +1,121 @@
+<script src="./charges_display.js" type="text/javascript"> </script>
+<script src="server.js" type="text/javascript"> </script>
+
+<script>
+    // validates string is a non-negative integer
+    function isNonNegInt(q, return_errors = false) {
+        errors = []; // assume no errors at first
+        if (q == '') q = 0;// for quantities not inputted
+        if (Number(q) != q) errors.push('<font color="red">Not a number!</font>'); // checks for non-numbers
+        else if (q < 0) errors.push('<font color="red">Negative value!</font>'); // checks for negative values
+        else if (parseInt(q) != q) errors.push('<font color="red">Not an integer!</font>'); // checks for non-integers
+        return return_errors ? errors : (errors.length == 0); // returns error if any
+    }
+
+    // checks input into the textbox and displays errors from isNonNegInt function
+    function checkQuantityTextbox(theTextbox) {
+        errs = isNonNegInt(theTextbox.value, true);
+        if (errs.length == 0) errs = ['Order Quantity:']; // if does not equal 0, will change "quantity" to "order quantity"
+        if (theTextbox.value.trim() == '') errs = ['Quantity']; // if there are errors, text will say "quantity"
+        document.getElementById(theTextbox.name + '_label').innerHTML = errs.join(", "); // enters errors and adds a , if there are multiple
+    }
+
+    // Source: Assignment 1 Frame Source of Smart Phone Products
+    window.onload = function () {
+        let params = (new URL(document.location)).searchParams;
+
+        if (params.has('purchase_submit')) {
+            has_errors = false; // assume quantities are valid
+            total_qty = 0; // checks for totals > 0
+            // loop
+            for (i = 0; i < charges.length; i++) {
+                if (params.has(`quantity${i}`)) {
+                    a_qty = params.get(`quantity${i}`);
+                    product_selection_form[`quantity${i}`].value = a_qty;
+                    total_qty += a_qty;
+                    if (!isNonNegInt(a_qty)) {
+                        has_errors = true;
+                        checkQuantityTextbox(product_selection_form[`quantity${i}`]);
+                    }
+                }
+            }
+
+            // alert message if there are errors
+            if (has_errors) {
+                alert("Please enter only valid quantities!");
+
+                // redirects to invoice.html
+            } else {
+                window.location = `./invoice.html${document.location.search}`;
+                window.stop;
+            }
+        }
+    }
+</script>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="charges-style.css">
+</head>
+
+<body>
+    <form name="product_selection_form" action="./invoice.html" method="GET">
+        <header>
+            <br>
+            <h1>Dr. Alvin G. Vales, MD</h1>
+        </header>
+        <form name="invoice_form" action="./invoice.html" method="GET">
+            <div>
+                <label id="nameLabel">Patient Name:</label>
+                <input type="text" placeholder="Enter Patient Name" name="pName">
+                <br>
+                <br>
+</script>
+<main>
+    <script>
+        // loop through products array to display products
+        for (i = 0; i < charges.length; i++) {
+            document.write(`
+                            <section class="item">
+                                <h2>${charges[i].service}</h2>
+                                <h2>$${charges[i].price}</h2>
+                            <br> <label id="quantity${i}_label"}">Quantity:</label>
+                                <input type="text" placeholder="0" name="quantity${i}" 
+                                onkeyup="checkQuantityTextbox(this);"></p >
+                            </section>
+                        `);
+        }
+    </script>
+</main>
+</div>
+
+<footer>
+    <br>
+    <a id="invoice_form"><input type="submit" value="Confirm" name="purchase_submit"></a>
+    <style>
+        input[type=submit] {
+            background-color: whitesmoke;
+            border: solid black 0.2px;
+            color: black;
+            padding: 16px 32px;
+            text-decoration: none;
+            margin: 20px 2px;
+            cursor: pointer;
+        }
+    </style>
+    <br>
+    </form>
+    <br>
+</footer>
+<br>
+<br>
+<script>
+    // Redirect to invoice if staff presses "Print Invoice"
+    invoice_form.href = "./invoice.html" + document.location.search;
+            // Post to array:
+            // billacount_form.action = "" + document.location.search;
+</script>
+</body>
+
+</html>

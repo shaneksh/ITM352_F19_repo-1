@@ -1,0 +1,52 @@
+/*General*/
+body {
+    width: 800px; 
+    margin: 0 auto;
+    font-family: 'Quicksand', sans-serif;
+    background: cornsilk;
+}
+      
+h1 {
+      font-family: 'Lobster', cursive;
+}
+      
+header {
+    text-align: center;
+    font-size: 20px;
+}
+
+/*Form Styling*/
+main {
+    border: 5px solid black;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    background-position: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+/*Styling the products display*/
+.item img {
+    width: 200px;
+    height: 200px;
+    border: 3px solid gray;
+    border-radius: 50%;
+}
+
+input[type = submit] {
+    width: 12em;
+}
+
+footer {
+    text-align: center;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    border-radius: 50%;
+    border: 3px solid black;
+  }
