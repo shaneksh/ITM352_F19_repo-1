@@ -1,9 +1,8 @@
-<script src="./server.js"></script>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+    <script src="server.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -18,16 +17,40 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="staff.html">Staff Portal</a></li>
+        <li><a href="patient.html">Patient Portal</a></li>
     </ul>
-
 </head>
+<script>
+    // From Assignment 2
+    let params = (new URL(document.location)).searchParams;  //gives access to the get decoded query arguments in the URL
+    if (params.has("LoginError")) { //if there are login errors
+        window.onload = function () { //shows when the page loads
+            loginError = params.get("LoginError"); //get the login error and assign it into the variables
+            passSame = '<font color="red">Incorrect Password</font>'; //assigns same error message into a variable
+            notReg = params.get("LoginError"); //get the login error and assign it into variable
+            if (loginError == passSame) { //if the loginError equals the same error stored in the variable
+                document.getElementById("passwordlabel").innerHTML = loginError; //sets inner html to display the login error
+                loginError = ''; //resets login error to prevent the same error from showing up on page refresh
+            }
+            if (loginError == notReg) { //if the loginError equals the same error stored in the variable
+                document.getElementById("theusernamelabel").innerHTML = loginError; //sets inner html to display the login error
+                loginError = ''; //resets login error to prevent the same error from showing up on page refresh
+            }
+            if (params.has("logStickInput")) { //if has user input from query
+                stickTheInput = params.get("logStickInput"); //get the info and assign into the variable
+                document.getElementById("userBox").value = stickTheInput; //sets the value of the input box to equal what was entered from the user
+                loginError = ''; //resets login error to preventn the same error from showing up on each page
+            }
+        }
+    }
+</script>
+
 <h1>Staff Portal Login</h1>
-</header>
 
 <body>
     <div>
         <main>
-            <form method="POST" name="login_form">
+            <form method="GET" name="login_form">
                 <input type="text" id="userBox" name="username" size="40" placeholder="enter username">
                 <label id="usernamelabel" class=""> Username </label> <br />
                 <input type="password" name="password" size="40" placeholder="enter password">
@@ -35,7 +58,7 @@
                 <br>
                 For employee personnel only.
                 <br>
-                <input type="submit" value="Submit" id="submit"> 
+                <input type="submit" value="Submit" id="submit">
                 <style>
                     input[type=submit] {
                         background-color: whitesmoke;
@@ -47,7 +70,7 @@
                         cursor: pointer;
                     }
                 </style>
-                <input type="button" value="Register New Patient" id="submit">
+                <input type="button" value="Register New Patient" id="registersubmit">
                 <style>
                     input[type=button] {
                         background-color: whitesmoke;
@@ -59,12 +82,15 @@
                         cursor: pointer;
                     }
                 </style>
+            </form>
         </main>
     </div>
-    </form>
-    <script>
-        login_form.action = "./charges.html" + document.location.search;
-    </script>
 </body>
+
+
+
+<script>
+    login_form.action = "./charges.html" + document.location.search;
+</script>
 
 </html>
