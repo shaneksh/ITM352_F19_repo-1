@@ -67,6 +67,8 @@
         </header>
         <form name="invoice_form" action="./invoice.html" method="GET">
             <div>
+                <label id="invoiceNumberLabel">Invoice Number:</label>
+                <input type="text" placeholder="Enter a valid invoice number" name="invoiceNumber">
                 <label id="nameLabel">Patient Name:</label>
                 <input type="text" placeholder="Enter Patient Name" name="pName">
                 <br>
@@ -92,6 +94,7 @@
 
 <footer>
     <br>
+    Patient will pay now
     <a id="invoice_form"><input type="submit" value="Confirm" name="purchase_submit"></a>
     <style>
         input[type=submit] {
@@ -104,17 +107,31 @@
             cursor: pointer;
         }
     </style>
-    <br>
+        <br>
+        Bill patient's account
+        <a id="bill_form"><input type="submit" value="Confirm" name="charge_account"></a>
+        <style>
+            input[type=submit] {
+                background-color: whitesmoke;
+                border: solid black 0.2px;
+                color: black;
+                padding: 16px 32px;
+                text-decoration: none;
+                margin: 20px 2px;
+                cursor: pointer;
+            }
+        </style>
+
     </form>
     <br>
 </footer>
 <br>
 <br>
 <script>
-    // Redirect to invoice if staff presses "Print Invoice"
+    // Redirect to invoice if patient will pay now
     invoice_form.href = "./invoice.html" + document.location.search;
-            // Post to array:
-            // billacount_form.action = "" + document.location.search;
+    // Post to array if you bill patient's account
+    bill_form.action = "/invoice_register" + document.location.search;
 </script>
 </body>
 
