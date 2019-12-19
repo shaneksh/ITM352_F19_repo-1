@@ -21,6 +21,7 @@
     }
 
     // Source: Assignment 1 Frame Source of Smart Phone Products
+    // Creates display of charges for staff to enter quantities
     window.onload = function () {
         let params = (new URL(document.location)).searchParams;
 
@@ -31,11 +32,11 @@
             for (i = 0; i < charges.length; i++) {
                 if (params.has(`quantity${i}`)) {
                     a_qty = params.get(`quantity${i}`);
-                    product_selection_form[`quantity${i}`].value = a_qty;
+                    charges_selection_form[`quantity${i}`].value = a_qty;
                     total_qty += a_qty;
                     if (!isNonNegInt(a_qty)) {
                         has_errors = true;
-                        checkQuantityTextbox(product_selection_form[`quantity${i}`]);
+                        checkQuantityTextbox(charges_selection_form[`quantity${i}`]);
                     }
                 }
             }
@@ -44,7 +45,7 @@
             if (has_errors) {
                 alert("Please enter only valid quantities!");
 
-                // redirects to invoice.html
+            // redirects to invoice.html
             } else {
                 window.location = `./invoice.html${document.location.search}`;
                 window.stop;
@@ -60,7 +61,7 @@
 </head>
 
 <body>
-    <form name="product_selection_form" action="./invoice.html" method="GET">
+    <form name="charges_selection_form" action="./invoice_register.html" method="GET">
         <header>
             <br>
             <h1>Dr. Alvin G. Vales, MD</h1>
@@ -68,7 +69,8 @@
         <form name="invoice_form" action="./invoice.html" method="GET">
             <div>
                 <label id="invoiceNumberLabel">Invoice Number:</label>
-                <input type="text" placeholder="Enter a valid invoice number" name="invoiceNumber">
+                <input type="text" placeholder="Enter Invoice Number" name="invoiceNumber">
+                <br>
                 <label id="nameLabel">Patient Name:</label>
                 <input type="text" placeholder="Enter Patient Name" name="pName">
                 <br>
@@ -76,7 +78,7 @@
 </script>
 <main>
     <script>
-        // loop through products array to display products
+        // loop through products array to display charges
         for (i = 0; i < charges.length; i++) {
             document.write(`
                             <section class="item">
@@ -94,7 +96,7 @@
 
 <footer>
     <br>
-    Patient will pay now
+    Bill Patient's Account
     <a id="invoice_form"><input type="submit" value="Confirm" name="purchase_submit"></a>
     <style>
         input[type=submit] {
@@ -107,31 +109,14 @@
             cursor: pointer;
         }
     </style>
-        <br>
-        Bill patient's account
-        <a id="bill_form"><input type="submit" value="Confirm" name="charge_account"></a>
-        <style>
-            input[type=submit] {
-                background-color: whitesmoke;
-                border: solid black 0.2px;
-                color: black;
-                padding: 16px 32px;
-                text-decoration: none;
-                margin: 20px 2px;
-                cursor: pointer;
-            }
-        </style>
-
     </form>
     <br>
 </footer>
 <br>
 <br>
 <script>
-    // Redirect to invoice if patient will pay now
-    invoice_form.href = "./invoice.html" + document.location.search;
-    // Post to array if you bill patient's account
-    bill_form.action = "/invoice_register" + document.location.search;
+    // Redirect to invoice
+    invoice_form.href = "./invoice_register.html" + document.location.search;
 </script>
 </body>
 

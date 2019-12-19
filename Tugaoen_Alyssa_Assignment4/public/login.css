@@ -1,0 +1,73 @@
+body {
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
+    background-image: url("./images/backgroundimage.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  h1 {
+    font-family: 'Lobster', cursive;
+  }
+  
+  header {
+    text-align: center;
+    font-family: 'Lobster', cursive;
+  }
+  
+  
+  /* Aligns login page to center */
+   /* Source: https://codepen.io/shayanea/pen/eVMMgO */
+  div {
+    position: relative;
+    min-height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Quicksand', sans-serif;
+  }
+  
+   /* Columns */
+  .column {
+      float: left;
+      width: 50%;
+    }
+    
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+  
+    /* Navigation Bar */
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color:lightblue;
+    }
+    
+    .nav{
+      border: 1px solid #ccc;
+      border-width: 1px 0;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+  }
+  .nav li{
+      display: inline;
+      border-right:solid 1px #fff;
+  }
+  .nav a{
+      display: inline-block;
+      padding: 10px;
+      font-family: 'Quicksand', sans-serif;
+      text-decoration: none;
+  }
+    
+  .nav li a:hover {
+      background-color:lightcyan;
+    }

@@ -3,7 +3,10 @@ body {
     width: 800px; 
     margin: 0 auto;
     font-family: 'Quicksand', sans-serif;
-    background: cornsilk;
+    background-image: url("./images/backgroundimage.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
       
 h1 {

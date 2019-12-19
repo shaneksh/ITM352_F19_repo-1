@@ -91,7 +91,7 @@ app.post("./login", function (request, response) {
 
 // puts invoice information into array
 // gets /invoice_register to make a form for staff to bill charges to specific invoice IDs
-app.get("/invoice_register", function (request, response) {
+app.get("/post_invoice", function (request, response) {
     str = `
 <body>
 <form action="" method="POST">
@@ -105,7 +105,7 @@ app.get("/invoice_register", function (request, response) {
     response.send(str);
 });
 
-app.post("/invoice_register", function (request, response) {
+app.post("/post_invoice", function (request, response) {
     // define patientname as a variable
     patientname = request.body.patientname;
     // empty object makes newuser a property of the array
@@ -119,7 +119,6 @@ app.post("/invoice_register", function (request, response) {
 
     // for assignment 2 send them to the invoice with the quanitity data and the username
     response.send(`${patientname} charges billed to account!`);
+},
+console.log(request.body));
 }
-console.log(request.body);
-
-});
