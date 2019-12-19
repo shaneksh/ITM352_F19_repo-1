@@ -5,7 +5,8 @@ var products = require("./public/charges_display.js"); //defines the products va
 const querystring = require('querystring'); //gives utilities for parsing and formatting URL query strings
 
 // sets public as root folder
-app.use("/static", express.static('./public/'));
+app.use(express.static('./public/'));
+app.listen(8080, () => console.log(`listening on port 8080`)); //the server listens on port 8080 and prints the message into the console
 
 app.use(myParser.urlencoded({ extended: true })); //tells the system to use JSON
 fs = require('fs'); //assigns to a fs variable
@@ -52,6 +53,7 @@ if (fs.statSync(patientfile)) {
 
     console.log(users_reg_data);
 
+}
 // validation for staff login
 app.post("./login", function (request, response) {
     // Process login form POST and redirect to logged in page if ok, back to login page if not
@@ -119,6 +121,6 @@ app.post("/post_invoice", function (request, response) {
 
     // for assignment 2 send them to the invoice with the quanitity data and the username
     response.send(`${patientname} charges billed to account!`);
-},
-console.log(request.body));
-}
+    console.log(request.body);
+
+});
